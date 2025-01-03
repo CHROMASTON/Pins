@@ -1,0 +1,85 @@
+
+<div class="container-fluid row">
+    <div class="co-12 py-3 text-end">
+        <button type="button" class="btn btn-dark me-2" data-bs-toggle="modal" data-bs-target="#createCustomer">
+            + Add customer
+          </button>    
+          <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#createPin">
+           + Add pin
+          </button>    
+    </div>
+    <div class="col-12">
+
+        <table class="table table-bordered text-center">
+            <thead>
+                <tr>
+                  <th scope="col">Tite</th>
+                  <th scope="col">Image</th>
+                  <th scope="col">Collaboratory</th>
+                  <th scope="col">Privacy</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                @for (pin of allPins(); track $index) {
+                    <tr>
+
+                        <td>{{pin.title}}</td>
+                        <td > <img [src]="pin.image" alt="nil" style="max-width: 200px;"></td>
+                        <td>@for(customer of pin.collaburators;track $index ){
+
+                            <div>{{customer.title}}</div>
+                            
+                        
+                        }</td>
+                        <td>{{pin.privacy}}</td>
+                    </tr>
+
+                }
+             
+            
+              </tbody>
+          </table>
+    </div>
+
+</div>
+
+
+<!-- customer modal -->
+
+  <div class="modal modal-lg fade" id="createCustomer" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="createCustomerLabel">Create Customer</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <app-create-customer ></app-create-customer>
+        </div>
+        <div class="modal-footer">
+        
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- customer modal -->
+
+  <div class="modal modal-lg fade" id="createPin"  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="createPinLabel">Add Pin</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <app-add-pin></app-add-pin>
+        </div>
+        <div class="modal-footer">
+         
+        </div>
+      </div>
+    </div>
+  </div>

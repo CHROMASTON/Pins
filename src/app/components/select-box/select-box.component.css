@@ -1,0 +1,19 @@
+::ng-deep.ngx-select{
+    border: 0;
+}
+::ng-deep.ngx-select__toggle{
+    border:0!important;
+}
+::ng-deep.ngx-select__search {
+    border: 0!important;
+}
+::ng-deep.ngx-select__toggle-buttons > .dropdown-toggle{
+    visibility: hidden;
+}
+::ng-deep.form-control:focus{
+    box-shadow: none;
+}
+
+.required{
+    color: red;
+}

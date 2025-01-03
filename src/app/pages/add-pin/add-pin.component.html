@@ -1,0 +1,104 @@
+
+
+<div id="customerFormContainer" class="container">
+
+    <div class="row justify-content-center ">
+
+        <!-- <div class="col-lg-8 col-10 col-md-10 "> -->
+          <div>
+
+        <form id="createPinForm" [formGroup]="createPinForm" (ngSubmit)="savePin()">
+
+
+        <!-- customer title -->
+            <app-input-box labelName="Title"  [control]="createPinForm.controls.title" [required]="true"></app-input-box>
+
+           
+        <!-- select images -->
+            <div class="pb-3 row  g-2">
+
+              <div class="col-lg-3 col-md-3 col-auto text-end">
+                <label for="formFile" class="form-label">Select Image<em class="required">* </em>
+                </label>
+
+          
+              </div>
+
+              <div class="col-lg-8">
+                <div style="min-height:200px"  ng2FileDrop    (onFileDrop)="setImageData($event)" [uploader]="uploader"
+                class="well my-drop-zone">
+                <div >
+                    <label for="formFile" class="form-label">
+                      @if(createPinForm.controls.image.invalid){
+                        Choose & Drag and Drop file here
+                      }
+                      @else {
+
+                                <img [src]="imgdata" alt="image here" srcset="" style="max-width: 100%;">
+
+
+
+                      }
+                    
+                    </label>
+                    <div class="image-input" >
+                      <input ng2FileSelect class="form-control" (onFileSelected)="setImageData($event)" type="file" id="formFile">
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+          
+           
+             
+              
+          
+          
+            </div>
+
+        <!-- select collaboratory  -->
+            <app-select-box [control]="createPinForm.controls.collaburators" [multiple]="true" [required]="true" labelName="Select Collaboratory" [optionsList]="customersList()" key="title" value="email" ></app-select-box>
+
+        <!-- Privacy -->
+
+            <div class="pb-3 row  g-2">
+
+              <div class="col-lg-3 col-md-3 col-auto text-end">
+                <label for="formFile" class="form-label">Privacy<em class="required">* </em> </label>
+
+          
+              </div>
+
+              <div class="col-lg-8 col-10">
+                <div class="form-check form-check-inline">
+
+                  <input formControlName="privacy" class="form-check-input" type="radio"  id="inlineRadio1" value="private">
+                  <label class="form-check-label" for="inlineRadio1">Private</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input formControlName="privacy"  class="form-check-input"  type="radio"  id="inlineRadio2" value="public">
+                  <label class="form-check-label" for="inlineRadio2">Public</label>
+              </div>
+  
+
+              </div>
+          
+           
+             
+              
+          
+          
+            </div>
+
+            <div class="col-12 text-center">
+                <button class="btn btn-outline btn-dark" type="submit" [disabled]="createPinForm.invalid">submit</button>     
+            </div>
+        
+        </form>
+        </div>
+
+
+    </div>
+
+
+

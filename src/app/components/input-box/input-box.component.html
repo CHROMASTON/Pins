@@ -1,0 +1,30 @@
+<div class="pb-3 row  g-2">
+
+    <div class="col-lg-3 col-md-3 col-auto text-end">
+        <label [for]="labelName()" class="form-label">{{labelName()}}<em [ngClass]="{'required': required()}">* </em></label>
+
+
+    </div>
+
+    <div class="col-lg-8 col-md-8">
+        <input type="text" class="form-control " [ngClass]="validationClasses" [id]="labelName()"  [formControl]="control()">
+
+        @if(control().errors?.['notUnique']){
+            <div [id]="labelName()+'Feedback'" class="invalid-feedback">
+                The {{labelName()}} is already in use
+            </div>
+        }
+        @else{
+    
+            <div [id]="labelName()+'Feedback'" class="invalid-feedback">
+                Please provide a valid {{labelName()}}.
+            </div>
+    
+        }
+
+    </div>
+   
+    
+
+
+</div>

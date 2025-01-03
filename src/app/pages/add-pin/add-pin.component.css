@@ -1,0 +1,15 @@
+.my-drop-zone { 
+    border: dotted 3px lightgray; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.image-input{
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+.required{
+    color: red;
+}

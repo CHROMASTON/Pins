@@ -1,0 +1,37 @@
+<div class="pb-3 row g-2">
+
+    <div class="col-auto col-lg-3 col-md-3 text-end">
+        
+        <label [for]="labelName()" class="form-label">{{labelName()}}<em [ngClass]="{'required': required()}">* </em></label>
+    </div>
+<div class=" col-lg-8 col-md-8">
+    <!-- <select class="form-select is-invalid" id="validationServer04" [ngClass]="validationClasses" [id]="labelName()" [formControl]="control()" [disabled]="isDisabled()" >
+        @for( opt of optionsList();track opt.key){
+            <option  [value]="opt.value">{{opt.key}}</option>
+        }
+        
+      </select> -->
+
+      <ngx-select [multiple]="multiple()"
+                    [class]="'form-select'"
+                    [items]="optionsList()"
+                    [optionValueField]="value()"
+                    [optionTextField]="key()"
+                    [formControl]="control()"
+                    [autoClearSearch]="true"
+                    [ngClass]="validationClasses"
+                    [disabled]="isDisabled()"
+                    >
+        </ngx-select>
+        <!-- (selectionChanges)="doSelectOptions($event)" -->
+
+
+    <div [id]="labelName()+'Feedback'" class="invalid-feedback">
+            Please provide a valid {{labelName()}}.
+    </div>
+</div>
+
+
+</div>
+
+

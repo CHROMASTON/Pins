@@ -1,0 +1,28 @@
+<div id="customerFormContainer" class="container">
+
+    <div class="row justify-content-center ">
+
+        <!-- <div class="col-lg-8 col-10 col-md-10 "> -->
+        <div>
+
+        <form id="createCustomerForm" [formGroup]="createCustomerForm" (ngSubmit)="saveCustomer()">
+        
+            <app-input-box labelName="Title"  [control]="createCustomerForm.controls.title" [required]="true"></app-input-box>
+            <app-input-box labelName="Email"  [control]="createCustomerForm.controls.email" [required]="true"></app-input-box>
+            <app-select-box labelName="Region"  [control]="createCustomerForm.controls.region" [required]="true" [optionsList]="regionOptions()"></app-select-box>
+            <app-select-box labelName="Country"  [control]="createCustomerForm.controls.country" [required]="true" [optionsList]="countryList()" ></app-select-box>
+
+        
+            <div class="col-12 text-center">
+                <button class="btn btn-outline btn-dark" type="submit" [disabled]="createCustomerForm.invalid">submit</button>     
+            </div>
+              
+        
+        </form>
+        </div>
+
+    </div>
+
+
+
+</div>
