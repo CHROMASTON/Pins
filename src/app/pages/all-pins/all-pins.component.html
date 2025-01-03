@@ -1,5 +1,6 @@
 
-<div class="container-fluid row">
+<div class="container-fluid row" style="    overflow: hidden;
+    box-sizing: border-box;">
     <div class="co-12 py-3 text-end">
         <button type="button" class="btn btn-dark me-2" data-bs-toggle="modal" data-bs-target="#createCustomer">
             + Add customer
@@ -10,7 +11,7 @@
     </div>
     <div class="col-12">
 
-        <table class="table table-bordered text-center">
+        <table class="table table-bordered table-responsive text-center">
             <thead>
                 <tr>
                   <th scope="col">Tite</th>
@@ -25,7 +26,7 @@
                     <tr>
 
                         <td>{{pin.title}}</td>
-                        <td > <img [src]="pin.image" alt="nil" style="max-width: 200px;"></td>
+                        <td > <img [src]="pin.image" alt="nil" style="max-width: 150px;"></td>
                         <td>@for(customer of pin.collaburators;track $index ){
 
                             <div>{{customer.title}}</div>
@@ -42,12 +43,12 @@
           </table>
     </div>
 
-</div>
 
 
 <!-- customer modal -->
 
-  <div class="modal modal-lg fade" id="createCustomer" >
+
+  <div class="modal " id="createCustomer" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -67,7 +68,7 @@
 
   <!-- customer modal -->
 
-  <div class="modal modal-lg fade" id="createPin"  >
+  <div class="modal " id="createPin"  >
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -82,4 +83,10 @@
         </div>
       </div>
     </div>
+ 
+ 
   </div>
+
+
+</div>
+
