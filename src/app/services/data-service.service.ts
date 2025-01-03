@@ -18,10 +18,8 @@ export class DataServiceService {
   loadCustomersFomLocalStorage() {
     try {
       const value = localStorage.getItem('customersList');
-      console.log(value);
       
       const list= value ? JSON.parse(value) : [];
-      console.log(list);
 
       this.customerListSignal.set(list)
       
@@ -47,11 +45,7 @@ export class DataServiceService {
   loadPinsFomLocalStorage() {
     try {
       const value = localStorage.getItem('pinList');
-      console.log(value);
-      
       const list= value ? JSON.parse(value) : [];
-      console.log(list);
-
       this.pinListSignal.set(list)
       
 
@@ -64,15 +58,9 @@ export class DataServiceService {
 
     let collaburatorsList:Customer[] =[]
     if(value.collaburators){
-      for(let email of value?.collaburators){
-
-        console.log('email',email);
-        
+      for(let email of value?.collaburators){        
 
         collaburatorsList=[...collaburatorsList,...this.customerListSignal().filter((customer)=>customer.email===email)]
-
-        console.log(collaburatorsList);
-        
 
       }
     }

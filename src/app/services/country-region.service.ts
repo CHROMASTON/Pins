@@ -30,9 +30,6 @@ export class CountryRegionService {
       map((response:ApiResponse)=>{
           let filteredRegion=Object.values(response.data).map((item)=>item.region)
           let filteredCountries=Object.entries(response.data).map(([key,value])=>{return{value:key,key:value.country,region:value.region}})
-          console.log(filteredCountries);
-          
-
           const oprtionList =[...new Set(filteredRegion)].map((i)=>{return {key:i,value:i}})
           return {oprtionList,response:filteredCountries}
           
