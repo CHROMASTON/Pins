@@ -1,5 +1,5 @@
 .main{
     display: grid;
     grid-template-rows: auto;
-    min-height: 100dvh;
+    min-height: 20dvh;
 }
